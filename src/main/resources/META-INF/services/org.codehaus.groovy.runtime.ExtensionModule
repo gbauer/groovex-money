@@ -1,0 +1,3 @@
+moduleName = geroba.groovex-money
+moduleVersion = ${version}
+extensionClasses = org.geroba.groovex.money.NumberMonetaryValueExtension
