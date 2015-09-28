@@ -1,4 +1,4 @@
-package org.geroba.groovex.money
+package org.geroba.groovex.money.extensions
 
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -22,15 +22,32 @@ class NumberMonetaryValueExtensionTest extends Specification {
         then:
         result != null
         result.number == number
-        result.currency = EUR
+        result.currency == EUR
 
         where:
         number << [new Integer(1),
                    new Float(1),
                    new Double(1),
-                   new Byte(1),
+                   Byte.valueOf((byte) 1),
                    new BigInteger(1),
                    new BigDecimal(1)]
     }
 
+    @Unroll
+    def "Multiply scalar #scalar with monetary amount #amount results in #expected"(Number scalar, MonetaryAmount amount, MonetaryAmount expected) {
+        when:
+        MonetaryAmount result = scalar * amount
+
+        then:
+        result == expected
+
+        where:
+        scalar | amount      || expected
+        1      | 1.euros()   || 1.euros()
+        2      | 1.euros()   || 2.euros()
+        -1     | 1.euros()   || -1.euros()
+        0      | 100.euros() || 0.euros()
+        100    | 0.euros()   || 0.euros()
+        1.2    | 2.euros()   || 2.4.euros()
+    }
 }
