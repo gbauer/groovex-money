@@ -1,0 +1,31 @@
+group 'com.geroba'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+        runtimeClasspath += configurations.provided
+    }
+    test {
+        compileClasspath += configurations.provided
+        runtimeClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    provided 'org.codehaus.groovy:groovy-all:2.4.5'
+    provided 'javax.money:money-api:1.0'
+    provided 'org.javamoney:moneta:1.0'
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
