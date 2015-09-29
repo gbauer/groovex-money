@@ -20,11 +20,11 @@ class NumberMonetaryValueExtension {
         monetaryAmount(amount, currency)
     }
 
-    static MonetaryAmount euros(Number self) {
+    static MonetaryAmount euro(Number self) {
         monetaryAmount(self as BigDecimal, GroovexCurrencies.EUR)
     }
 
-    static MonetaryAmount dollars(Number self) {
+    static MonetaryAmount dollar(Number self) {
         monetaryAmount(self as BigDecimal, GroovexCurrencies.USD)
     }
 

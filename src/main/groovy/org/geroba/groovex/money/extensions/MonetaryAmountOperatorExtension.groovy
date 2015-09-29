@@ -31,4 +31,8 @@ class MonetaryAmountOperatorExtension {
     static MonetaryAmount div(MonetaryAmount self, Number divisor) {
         self.divide(divisor)
     }
+
+    static Number div(MonetaryAmount self, MonetaryAmount divisor) {
+        self.number.toBigDecimal() / divisor.number.toBigDecimal()
+    }
 }

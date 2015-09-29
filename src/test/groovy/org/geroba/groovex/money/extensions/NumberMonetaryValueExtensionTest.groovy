@@ -43,11 +43,11 @@ class NumberMonetaryValueExtensionTest extends Specification {
 
         where:
         scalar | amount      || expected
-        1      | 1.euros()   || 1.euros()
-        2      | 1.euros()   || 2.euros()
-        -1     | 1.euros()   || -1.euros()
-        0      | 100.euros() || 0.euros()
-        100    | 0.euros()   || 0.euros()
-        1.2    | 2.euros()   || 2.4.euros()
+        1   | 1.euro()   || 1.euro()
+        2   | 1.euro()   || 2.euro()
+        -1  | 1.euro()   || -1.euro()
+        0   | 100.euro() || 0.euro()
+        100 | 0.euro()   || 0.euro()
+        1.2 | 2.euro()   || 2.4.euro()
     }
 }
